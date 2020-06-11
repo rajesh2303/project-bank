@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: black;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0} 
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: black;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;color: black;}
+
+.modal-footer {
+  padding: 2px 16px;
+  background-color: black;
+  color: white;
+}
+.btn {
+  background-color: black;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+input[type=text],input[type=password], input[type=Date],input[type=number],input[type=email] {
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border-style: container;
+  background: #f1f1f1;
+}
+
+
+
+
+body, html {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.bg-img {
+  /* The image used */
+  background-image: url("https://www.pandasecurity.com/mediacenter/src/uploads/2016/03/pandasecurity-Who-are-the-most-famous-hackers-in-history.jpg");
+      height: 100%; 
+  
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Add styles to the form container */
+.container {
+  position: absolute;
+  right: 660px;
+  margin: 20px;
+  top:150px;
+  max-width: 400px;
+  padding: 16px;
+  background-color: black;
+}
+
+
+
+/* Full-width input fields */
+input[type=text],input[type=password], input[type=Date],input[type=number],input[type=email] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border-style: container;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus,input[type=password]:focus, input[type=Date]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit button */
+.btn {
+  background-color: black;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.btn:hover {
+  opacity: 1;
+}
+</style>
+</head>
+<body>
+<div class="bg-img">
+<div class="container">
+<h1>hi,<%= onetp %></h1>
+
+<h2 id="1234" style="visibility:hidden"><b style=colou="red">you have no such amt:</b></h2>
+<h2 id="123" style="visibility:hidden"><b style=colou="red">no id</b></h2>
+<button id="myBtn" class="btn">TOUCH TO ENTER OTP</button>
+</div>
+</div>
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">Open Modal</button>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>your account is:<%= ena %></h2>
+    </div>
+    <div class="modal-body">
+        <lable><b style="color:white">ENTER OTP:</b></lable>
+        <input type="text"  placeholder="Enter OTP" id="ccc1">
+        <button class="btn" onclick="myfuc();">submit</button>
+        <form action="/cal" method="POST">
+        <input type="text" style="visibility :hidden" name="name" value=<%= ena %> >
+        <input type="text" style="visibility :hidden" name="bit" value=<%= bit %> >
+        <lable style="visibility :hidden" id="td"><b style="color:white">TRNSFER ID:</b></lable>
+        <input type="number"  placeholder="Enter ID" id="tr" style="visibility :hidden" name="tid">
+
+        <lable style="visibility :hidden" id="amt"><b style="color:white">AMOUNT :</b></lable>
+        <input type="number"  placeholder="Enter ID" id="amt1" style="visibility :hidden" name="amt">
+        <button class="btn" style="visibility :hidden" id="para1">VIEW BALANCE</button>
+        </form>
+    </div>
+    <div class="modal-footer">
+    <form action="/otp" method="POST">
+    <input type="text" style="visibility :hidden" name="name" value=<%= ena %> >
+    <button class="btn" style="visibility :hidden" id="12376">RESEND</button>
+    <p style="visibility :hidden" id="para"><b style="color:red">OTP IS INCORRECT<b></p>
+    
+      <br>
+    </form>
+    </div>
+  </div>
+    
+  </div>
+
+</div>
+
+<script>
+if(<%= status %>==0){
+    document.getElementById("1234").style.visibility="visible";
+}
+if(<%= status %>==404){
+    document.getElementById("123").style.visibility="visible";
+}
+function myfuc(){
+    var ck=document.getElementById("ccc1").value;
+    if(ck==<%= onetp %>){
+        document.getElementById("tr").style.visibility="visible";
+        document.getElementById("td").style.visibility="visible";
+        document.getElementById("amt").style.visibility="visible";
+        document.getElementById("amt1").style.visibility="visible";
+        document.getElementById("para1").style.visibility="visible";
+    }
+    else{
+        document.getElementById("para").style.visibility="visible";
+        document.getElementById("12376").style.visibility="visible";
+    }
+}
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+/*window.setTimeout(() => {
+            alert("Log off in 3 min")
+        }, 20000);
+        window.setTimeout(() => {
+            window.location.href= "logoff";
+        }, 30000);*/
+</script>
+
+</body>
+</html>
+
